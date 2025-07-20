@@ -93,11 +93,11 @@ const courses = [
 const getStatusColor = (status) => {
   switch (status) {
     case 'Completed':
-      return 'text-green-400';
+      return 'text-green-600';
     case 'In Progress':
-      return 'text-yellow-400';
+      return 'text-yellow-500';
     default:
-      return 'text-gray-300';
+      return 'text-gray-500';
   }
 };
 
@@ -110,7 +110,7 @@ const CoursesPage = () => {
 
   return (
     <motion.div
-      className="p-6 md:p-10 min-h-screen bg-gray-950 text-white"
+      className="pr-20 pl-20 pt-10 md:p-10 min-h-screen bg-gray-50 text-gray-900"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
@@ -122,26 +122,26 @@ const CoursesPage = () => {
           filteredCourses.map((course) => (
             <motion.div
               key={course.id}
-              className="bg-[#1e293b] border border-gray-700 rounded-2xl p-5 hover:shadow-lg transition-shadow"
+              className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow"
               whileHover={{ scale: 1.02 }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <BookOpen className="text-blue-400" />
-                <h2 className="text-lg font-semibold text-white">{course.title}</h2>
+                <BookOpen className="text-blue-600" />
+                <h2 className="text-lg font-semibold text-gray-800">{course.title}</h2>
               </div>
-              <p className="text-gray-400 text-sm mb-1">
-                Instructor: <span className="text-white">{course.instructor}</span>
+              <p className="text-sm text-gray-600 mb-1">
+                Instructor: <span className="text-gray-800 font-medium">{course.instructor}</span>
               </p>
-              <p className="text-gray-400 text-sm mb-1">
-                Progress: <span className="text-white">{course.progress}%</span>
+              <p className="text-sm text-gray-600 mb-1">
+                Progress: <span className="text-gray-800 font-medium">{course.progress}%</span>
               </p>
-              <p className={`text-sm font-medium ${getStatusColor(course.status)}`}>
+              <p className={`text-sm font-semibold ${getStatusColor(course.status)}`}>
                 Status: {course.status}
               </p>
             </motion.div>
           ))
         ) : (
-          <p className="text-gray-400 col-span-full text-center">No courses found.</p>
+          <p className="text-gray-500 col-span-full text-center">No courses found.</p>
         )}
       </div>
     </motion.div>

@@ -1,20 +1,39 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Dashboard from './pages/Dashboard';
-import Courses from './pages/Courses';
-import AddCourse from './pages/AddCourse';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/auth/Login";
+import Signup from "./pages/auth/Signup";
+import Logout from "./pages/auth/Logout";
+import Dashboard from "./pages/Dashboard";
+import CoursesPage from "./pages/Courses";
+import AddCourse from "./pages/AddCourse";
+import Navbar from "./components/Navbar";
+import PrivateRoute from "./pages/utils/PrivateRoute"; // For profile-protected pages
+import Profile from "./pages/Profile"; // (optional: if you add a profile page)
 
 function App() {
+  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+
   return (
     <Router>
-      <Navbar />
-      <div className="p-4 max-w-7xl mx-auto">
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/add" element={<AddCourse />} />
-        </Routes>
-      </div>
+      <Navbar /> {/* Always show Navbar */}
+
+      <Routes>
+        {/* Publicly accessible routes */}
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/courses" element={<CoursesPage />} />
+        <Route path="/addcourse" element={<AddCourse />} />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
     </Router>
   );
 }
