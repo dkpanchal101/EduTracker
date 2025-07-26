@@ -15,8 +15,7 @@ const AddCourse = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(courseData); // send this to backend
-    // reset form
+    console.log(courseData); // send to backend
     setCourseData({
       name: "",
       instructor: "",
@@ -27,12 +26,12 @@ const AddCourse = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-gray-950 text-white">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-white-100 text-gray-800">
       <form
         onSubmit={handleSubmit}
-        className="bg-[#1e293b] p-8 rounded-2xl shadow-xl w-full max-w-md space-y-6 border border-[#334155]"
+        className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md space-y-6 border border-gray-200"
       >
-        <h2 className="text-2xl font-bold text-center mb-4">Add New Course</h2>
+        <h2 className="text-2xl font-bold text-center text-gray-900">Add New Course</h2>
 
         <div className="space-y-4">
           <div>
@@ -43,8 +42,8 @@ const AddCourse = () => {
               value={courseData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 rounded-md bg-[#0f172a] border border-[#334155] focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="e.g. React for Beginners"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -56,8 +55,8 @@ const AddCourse = () => {
               value={courseData.instructor}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 rounded-md bg-[#0f172a] border border-[#334155] focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="e.g. John Doe"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -69,8 +68,8 @@ const AddCourse = () => {
               value={courseData.platform}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 rounded-md bg-[#0f172a] border border-[#334155] focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="e.g. Coursera, Udemy"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -82,7 +81,7 @@ const AddCourse = () => {
               value={courseData.startDate}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 rounded-md bg-[#0f172a] border border-[#334155] focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -92,7 +91,7 @@ const AddCourse = () => {
               name="status"
               value={courseData.status}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-md bg-[#0f172a] border border-[#334155] focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="in-progress">In Progress</option>
               <option value="completed">Completed</option>
@@ -103,7 +102,7 @@ const AddCourse = () => {
 
         <button
           type="submit"
-          className="w-full mt-4 bg-purple-600 hover:bg-purple-700 transition duration-200 text-white py-2 rounded-md font-semibold"
+          className="w-full mt-4 bg-blue-600 hover:bg-blue-700 transition duration-200 text-white py-2 rounded-md font-semibold"
         >
           Add Course
         </button>
